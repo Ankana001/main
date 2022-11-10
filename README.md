@@ -1,3 +1,3 @@
-# main
-
-This is used for practising while learning how to use git and github push and pull commands
+# Nextflow Process for Low Frequency Somatic Mutation Detection using GATK Mutect
+##required version restrictions
+Java = 11 or later
