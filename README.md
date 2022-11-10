@@ -1,8 +1,10 @@
 ## Nextflow Process for Low Frequency Somatic Mutation Detection using GATK Mutect
 ### required version restrictions
 Java = 11 or later
+<a href="https://github.com/broadinstitute/gatk/releases">GATK</a>
 
-## reference sequence used: ### hg19
+## reference sequence used: 
+hg19
 
 ## directory structure
 ```bash
@@ -25,4 +27,10 @@ Java = 11 or later
 └── gatk_ref_index
     ├── hg19.dict
     └── hg19.fa.fai
+```
+### conda environment creation and activation
+To create environment from yaml file the following script should be run
+```bash 
+conda env create -f gatk-mutect2_env.yaml
+conda activate gatk
 ```
