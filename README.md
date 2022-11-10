@@ -103,6 +103,6 @@ gatk Mutect2 -R reference.fa -I tumor.bam -I normal.bam -normal normal_sample_na
 ```
 
 ## output file storage location 
-A file named "result" will be created in the nextflow directory. \  
-Currently it's been written in such a way that it'll only store the vcf files in the result directory in a sub folder called "variant_calling_output".\  
-But at any point of time you want to store output files from any stage just uncomment the publishDir function present in that corresponding process.\  
+A file named "result" will be created in the nextflow directory.\
+Currently it's been written in such a way that it'll only store the vcf files in the result directory in a sub folder called "variant_calling_output".\
+But at any point of time you want to store output files from any stage just uncomment the publishDir function present in that corresponding process.\
