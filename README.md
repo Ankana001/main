@@ -68,3 +68,36 @@ picard AddOrReplaceReadGroups adds read group tag to the alignment outfile file.
 java -jar picard.jar AddOrReplaceReadGroups I=input.bam O=output.bam RGID=4 RGLB=lib1 RGPL=illumina RGPU=unit1 RGSM=20
 ```
 This step is necesssary because for mutect2 to run the software needs the @RG tags.
+
+### 4. sorting 
+this process sorts the validated bam files using samtools sort method
+
+### 5. filter uniquely mapped reads
+1. using XA and SA tag in the bam file only those reads were extracted which got mapped to only one place in the reference genome
+```bash 
+grep -v -e "XA:Z" -v -e "SA:Z"
+```
+this filters out the split reads (XA) and secondary alignments (SA).\
+2. This bam file is indexed using samtools index.
+
+### 5. filter of the mapped reads
+1. this gives reads which got mapped but to more than one places.
+```bash 
+grep -e "XA:Z" -e "SA:Z"
+```
+2. This bam file is then indexed using samtools index.
+
+### 6. Indexing for GATK
+This takes already present reference fasta and it's index files (.fai and .dict) as input and creates a tuple channel which is used as reference input for variant calling step.
+
+### 7. variant calling
+From the 2 types of bam file we got for each sample (uniquely mapped, rest of the mapped) is passed to this process for variant calling using gatk mutect2.
+#### example usage
+##### for single sample 
+```bash
+gatk Mutect2 -R reference.fa -I sample.bam -O single_sample.vcf.gz
+```
+##### diseased with matched normal
+```bash 
+gatk Mutect2 -R reference.fa -I tumor.bam -I normal.bam -normal normal_sample_name --germline-resource af-only-gnomad.vcf.gz --panel-of-normals pon.vcf.gz -O somatic.vcf.gz
+```
