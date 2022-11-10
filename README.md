@@ -3,4 +3,4 @@
 Java = 11 or later
 
 ## directory structure
-/home/ankana.banerjee/Pictures/7032465.jpg
+<img src="/home/ankana.banerjee/Pictures/7032465.jpg">
