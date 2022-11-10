@@ -2,6 +2,8 @@
 ### required version restrictions
 Java = 11 or later
 
+## reference sequence used: ### hg19
+
 ## directory structure
 ```bash
 .
