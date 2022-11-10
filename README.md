@@ -34,3 +34,19 @@ To create environment from yaml file the following script should be run
 conda env create -f gatk-mutect2_env.yaml
 conda activate gatk
 ```
+### the index files for bwa was made previously using the following command and was stored in bwa_index folder
+```bash
+bwa index hg19.fa
+```
+
+### the index files for gatk was made previously using the following command and was stored in gatk_ref_index folder
+```bash
+gatk CreateSequenceDictionary -R hg19.fa
+samtools faidx hg19.fa
+```
+### Running the pipeline
+```bash
+nextflow run gatk_mutect2_dsl2.nf
+```
+after doing any changes if you want to resume the flow from where you left you can add -resume paameter with this command
+
