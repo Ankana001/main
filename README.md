@@ -65,13 +65,6 @@ picard AddOrReplaceReadGroups adds read group tag to the alignment outfile file.
   
 #### usage example:
 ```bash 
-java -jar picard.jar AddOrReplaceReadGroups \
-      I=input.bam \
-      O=output.bam \
-      RGID=4 \
-      RGLB=lib1 \
-      RGPL=illumina \
-      RGPU=unit1 \
-      RGSM=20
+java -jar picard.jar AddOrReplaceReadGroups I=input.bam O=output.bam RGID=4 RGLB=lib1 RGPL=illumina RGPU=unit1 RGSM=20
 ```
 This step is necesssary because for mutect2 to run the software needs the @RG tags.
