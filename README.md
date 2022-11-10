@@ -3,4 +3,5 @@
 Java = 11 or later
 
 ## directory structure
-<img src="/home/ankana.banerjee/Pictures/7032465.jpg">
+![7032465](https://user-images.githubusercontent.com/105263794/201048715-d752acbf-9691-4c62-b142-da0435fd8b22.jpg)
+
