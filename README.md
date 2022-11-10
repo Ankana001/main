@@ -3,6 +3,7 @@
 Java = 11 or later
 
 ## directory structure
+```bash
 .
 ├── bwa_index
 │   ├── hg19.fa
@@ -22,3 +23,4 @@ Java = 11 or later
 └── gatk_ref_index
     ├── hg19.dict
     └── hg19.fa.fai
+```
