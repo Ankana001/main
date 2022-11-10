@@ -93,11 +93,16 @@ This takes already present reference fasta and it's index files (.fai and .dict)
 ### 7. variant calling
 From the 2 types of bam file we got for each sample (uniquely mapped, rest of the mapped) is passed to this process for variant calling using gatk mutect2.
 #### example usage
-##### for single sample 
+for single sample 
 ```bash
 gatk Mutect2 -R reference.fa -I sample.bam -O single_sample.vcf.gz
 ```
-##### diseased with matched normal
+diseased with matched normal
 ```bash 
 gatk Mutect2 -R reference.fa -I tumor.bam -I normal.bam -normal normal_sample_name --germline-resource af-only-gnomad.vcf.gz --panel-of-normals pon.vcf.gz -O somatic.vcf.gz
 ```
+
+## output file storage location 
+A file named "result" will be created in the nextflow directory. \  
+Currently it's been written in such a way that it'll only store the vcf files in the result directory in a sub folder called "variant_calling_output".\  
+But at any point of time you want to store output files from any stage just uncomment the publishDir function present in that corresponding process.\  
